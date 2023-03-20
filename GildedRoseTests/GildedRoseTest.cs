@@ -31,9 +31,10 @@ namespace GildedRoseTests
         [InlineData("Conjured Mana Cake", 3, 6, 2, 4)]
         [InlineData("Conjured Mana Cake", 0, 6, -1, 2)]
         [InlineData("Conjured Mana Cake", 0, 2, -1, 0)]
-        public void Should_Update_SellIn_And_Quality_Correctly(string name, int oldSellin, int oldQuality,int newSellin,int newQuality)
+        public void Should_Update_SellIn_And_Quality_Correctly(string name, int sellin, int oldQuality,int newSellin,int newQuality)
         {
             //Arrange
+            var item = new Item(sellin, oldQuality);
             //Act
             //Verify
         }
