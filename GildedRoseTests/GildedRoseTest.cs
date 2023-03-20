@@ -47,7 +47,7 @@ namespace GildedRose
         public void ShouldUpdateSellInAndQualityCorrectly(string name, int sellin, int quality, int newSellin, int newQuality)
         {
             //Arrange
-            var item = new ItemProxy(new Item { Name = name, SellIn = sellin, Quality = quality });
+            var item = ItemProxyFactory.Create(new Item { Name = name, SellIn = sellin, Quality = quality });
             //Act
             _itemProcessor.Process(item);
             //Verify
