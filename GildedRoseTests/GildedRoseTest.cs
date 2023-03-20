@@ -1,4 +1,5 @@
-﻿using GildedRoseKata;
+﻿using GildedRose.Factories;
+using GildedRoseKata;
 
 namespace GildedRose
 {
@@ -26,7 +27,7 @@ namespace GildedRose
             //Arrange
             var item = ItemProxyFactory.Create(new Item { Name = name, SellIn = sellin, Quality = quality });
             //Act
-            _itemProcessor.Process(item);
+            item.Process();
             //Verify
             Assert.Equal(item.SellIn, newSellin);
             Assert.Equal(item.Quality, newQuality);
