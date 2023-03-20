@@ -1,15 +1,23 @@
 ﻿using Xunit;
 using System.Collections.Generic;
 using GildedRoseKata;
+using Moq;
 
 namespace GildedRose
 {
     public class GildedRoseTest
     {
         private readonly IItemProcessor _itemProcessor;
-        public GildedRoseTest(IItemProcessor itemProcessor)
+        public GildedRoseTest()
         {
-            _itemProcessor = itemProcessor;
+            var mockedProcessor = new Mock<IItemProcessor>();
+            mockedProcessor.Setup(q => q.Process(It.IsAny<ItemProxy>()))
+                .Callback<ItemProxy>(item=>
+                {
+                    item.Process();
+                })
+                ;
+            _itemProcessor = mockedProcessor.Object;
         }
         [Fact]
         public void foo()
