@@ -34,7 +34,7 @@
 
         protected void DecrementSellIn()
         {
-            _item.SellIn --;
+            _item.SellIn--;
         }
         public virtual void Process()
         {
