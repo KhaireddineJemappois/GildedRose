@@ -11,7 +11,7 @@
         public int SellIn => _item.SellIn;
         public int Quality => _item.Quality;
 
-        public void IncrementQuality()
+        protected void IncrementQuality()
         {
             if (_item.Quality < 50)
             {
@@ -19,7 +19,7 @@
             }
         }
 
-        public void DecrementQuality()
+        protected void DecrementQuality()
         {
             if (_item.Quality > 0)
             {
@@ -27,14 +27,18 @@
             }
         }
 
-        public void DropQuality()
+        protected void DropQuality()
         {
             _item.Quality = 0;
         }
 
-        public void DecrementSellIn()
+        protected void DecrementSellIn()
         {
             _item.SellIn--;
+        }
+        public virtual void Process()
+        {
+            throw new System.Exception("Unknow Item Category");
         }
     }
 }
