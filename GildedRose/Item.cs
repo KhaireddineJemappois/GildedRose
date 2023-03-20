@@ -2,10 +2,15 @@
 {
     public class Item
     {
-        public Item(int sellin, int quality)
+        public Item()
+        {
+            
+        }
+        public Item(string name, int sellin, int quality)
         {
             SellIn = sellin;
             Quality = quality;
+            Name = name;
         }
 
         public string Name { get; set; }
