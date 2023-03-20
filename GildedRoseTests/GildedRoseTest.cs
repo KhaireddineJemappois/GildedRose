@@ -56,5 +56,33 @@ namespace GildedRose
 
 
         }
+        [Theory]
+        [InlineData("Aged Brie", Category.AgedBrie)]
+        [InlineData("Backstage passes to a TAFKAL80ETC concert", Category.BackstagePass)]
+        [InlineData("Sulfuras, Hand of Ragnaros", Category.Legendary)]
+        [InlineData("Conjured Mana Cake", Category.Conjured)]
+        [InlineData("+5 Dexterity Vest", Category.Normal)]
+        [InlineData("Elixir of the Mongoose", Category.Normal)]
+        public void Shoud_Get_The_Right_Category_From_Name(string name, Category expectedCategory)
+        {
+            var item = new Item { Name = name };
+            var category = item.GetCategory();
+            Assert.Equal(category, expectedCategory);
+        }
+
+        [Theory]
+        [InlineData("Aged Brie", typeof(AgedBrieItemProxy))]
+        [InlineData("Backstage passes to a TAFKAL80ETC concert", typeof(BackstagePassItemProxy))]
+        [InlineData("Sulfuras, Hand of Ragnaros", typeof(LegendaryItemProxy))]
+        [InlineData("Conjured Mana Cake", typeof(ConjuredItemProxy))]
+        [InlineData("+5 Dexterity Vest", typeof(NormalItemProxy))]
+        [InlineData("Elixir of the Mongoose", typeof(NormalItemProxy))]
+        public void Should_Create_The_Right_Instance_Of_The_Proxy_Depending_On_Name(string name,Type type)
+        {
+            var item = new Item { Name = name};
+            var proxy = ItemProxyFactory.Create(item);
+            Assert.NotNull(proxy);
+            Assert.IsType(type,proxy);
+        }
     }
 }

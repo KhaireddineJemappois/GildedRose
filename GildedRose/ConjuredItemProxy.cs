@@ -1,6 +1,6 @@
 ﻿namespace GildedRoseKata
 {
-    internal class ConjuredItemProxy : ItemProxy
+    public class ConjuredItemProxy : ItemProxy
     {
         public ConjuredItemProxy(Item item) : base(item)
         {
