@@ -1,4 +1,6 @@
-﻿namespace GildedRoseKata
+﻿using GildedRoseKata;
+
+namespace GildedRose.Factories
 {
     public static class ItemProxyFactory
     {
