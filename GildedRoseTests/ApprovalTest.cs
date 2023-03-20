@@ -10,7 +10,7 @@ using VerifyXunit;
 
 using Xunit;
 
-namespace GildedRoseTests
+namespace GildedRose
 {
     [UsesVerify]
     public class ApprovalTest

@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using GildedRoseKata;
 
-namespace GildedRoseTests
+namespace GildedRose
 {
     public class GildedRoseTest
     {
+        private readonly IItemProcessor _itemProcessor;
+        public GildedRoseTest(IItemProcessor itemProcessor)
+        {
+            _itemProcessor = itemProcessor;
+        }
         [Fact]
         public void foo()
         {
             IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
-            GildedRose app = new GildedRose(Items);
+            GildedRoseKata.GildedRose app = new GildedRoseKata.GildedRose(Items);
             app.UpdateQuality();
             Assert.Equal("fixme", Items[0].Name);
         }
@@ -31,12 +36,16 @@ namespace GildedRoseTests
         [InlineData("Conjured Mana Cake", 3, 6, 2, 4)]
         [InlineData("Conjured Mana Cake", 0, 6, -1, 2)]
         [InlineData("Conjured Mana Cake", 0, 2, -1, 0)]
-        public void ShouldUpdateSellInAndQualityCorrectly(string name, int sellin, int quality,int newSellin,int newQuality)
+        public void ShouldUpdateSellInAndQualityCorrectly(string name, int sellin, int quality, int newSellin, int newQuality)
         {
             //Arrange
-            var item = new Item(name,sellin, quality);
+            var item = new ItemProxy(new Item { Name = name, SellIn = sellin, Quality = quality });
             //Act
+            _itemProcessor.Process(item);
             //Verify
+            Assert.Equal(item.SellIn, newSellin);
+            Assert.Equal(item.Quality, newQuality);
+
 
         }
     }
