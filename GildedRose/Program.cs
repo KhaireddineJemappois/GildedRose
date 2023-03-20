@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GildedRose.Domain;
 using GildedRose.Factories;
 
 namespace GildedRoseKata
@@ -38,7 +39,6 @@ namespace GildedRoseKata
 				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
-            var app = new GildedRose(Items);
 
 
             for (var i = 0; i < 1; i++)
