@@ -10,6 +10,8 @@ namespace GildedRoseKata
 
         public override void Process()
         {
+            DecrementSellIn();
+            //Do not adjust quality
         }
     }
 }

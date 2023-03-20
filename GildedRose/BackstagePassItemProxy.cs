@@ -8,6 +8,22 @@
 
         public override void Process()
         {
+            DecrementSellIn();
+            IncreaseQuality();
+            //if <=10 => increase twice
+            if (SellIn <= 10)
+            {
+                IncreaseQuality();
+            }
+            //if <=5 => increase thrice
+            if (SellIn <= 5)
+            {
+                IncreaseQuality();
+            }
+            if (SellIn < 0)
+            {
+                DropQuality();
+            }
         }
     }
 }

@@ -11,7 +11,7 @@
         public int SellIn => _item.SellIn;
         public int Quality => _item.Quality;
 
-        protected void IncrementQuality(int step = 1)
+        protected void IncreaseQuality(int step = 1)
         {
             if (_item.Quality < 50)
             {
@@ -19,7 +19,7 @@
             }
         }
 
-        protected void DecrementQuality(int step = 1)
+        protected void DecreaseQuality(int step = 1)
         {
             if (_item.Quality > 0)
             {
@@ -32,9 +32,9 @@
             _item.Quality = 0;
         }
 
-        protected void DecrementSellIn(int step = 1)
+        protected void DecrementSellIn()
         {
-            _item.SellIn -= step;
+            _item.SellIn --;
         }
         public virtual void Process()
         {

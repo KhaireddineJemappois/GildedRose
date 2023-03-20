@@ -9,7 +9,10 @@
         public override void Process()
         {
             DecrementSellIn();
-            DecrementQuality();
+            if (SellIn < 0)
+                DecreaseQuality(2);
+            else
+                DecreaseQuality();
         }
     }
 }
