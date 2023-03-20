@@ -1,4 +1,7 @@
-﻿using GildedRoseKata;
+﻿using GildedRose.Application.Proxies;
+using GildedRose.Domain;
+using GildedRose.Enum;
+using GildedRose.Extensions;
 
 namespace GildedRose.Factories
 {

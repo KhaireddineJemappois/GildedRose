@@ -1,4 +1,6 @@
-﻿namespace GildedRoseKata
+﻿using GildedRose.Domain;
+
+namespace GildedRose.Application.Proxies
 {
     public class NormalItemProxy : ItemProxy
     {

@@ -1,4 +1,7 @@
-﻿namespace GildedRoseKata
+﻿using GildedRose.Domain;
+using GildedRose.Enum;
+
+namespace GildedRose.Extensions
 {
     public static class ItemExtension
     {
