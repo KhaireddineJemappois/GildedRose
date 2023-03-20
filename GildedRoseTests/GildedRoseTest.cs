@@ -19,14 +19,6 @@ namespace GildedRose
                 ;
             _itemProcessor = mockedProcessor.Object;
         }
-        [Fact]
-        public void foo()
-        {
-            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
-            GildedRoseKata.GildedRose app = new GildedRoseKata.GildedRose(Items);
-            app.UpdateQuality();
-            Assert.Equal("fixme", Items[0].Name);
-        }
         [Theory]
         [InlineData("+5 Dexterity Vest", 10, 20, 9, 19)]
         [InlineData("Aged Brie", 2, 0, 1, 1)]
