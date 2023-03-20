@@ -1,6 +1,4 @@
-﻿using GildedRoseKata;
-
-namespace GildedRoseKata
+﻿namespace GildedRoseKata
 {
     public class LegendaryItemProxy : ItemProxy
     {

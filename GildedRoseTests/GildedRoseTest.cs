@@ -1,24 +1,9 @@
-﻿using Xunit;
-using System.Collections.Generic;
-using GildedRoseKata;
-using Moq;
+﻿using GildedRoseKata;
 
 namespace GildedRose
 {
     public class GildedRoseTest
     {
-        private readonly IItemProcessor _itemProcessor;
-        public GildedRoseTest()
-        {
-            var mockedProcessor = new Mock<IItemProcessor>();
-            mockedProcessor.Setup(q => q.Process(It.IsAny<ItemProxy>()))
-                .Callback<ItemProxy>(item=>
-                {
-                    item.Process();
-                })
-                ;
-            _itemProcessor = mockedProcessor.Object;
-        }
         [Theory]
         [InlineData("+5 Dexterity Vest", 10, 20, 9, 19)]
         [InlineData("Aged Brie", 2, 0, 1, 1)]
@@ -69,12 +54,12 @@ namespace GildedRose
         [InlineData("Conjured Mana Cake", typeof(ConjuredItemProxy))]
         [InlineData("+5 Dexterity Vest", typeof(NormalItemProxy))]
         [InlineData("Elixir of the Mongoose", typeof(NormalItemProxy))]
-        public void Should_Create_The_Right_Instance_Of_The_Proxy_Depending_On_Name(string name,Type type)
+        public void Should_Create_The_Right_Instance_Of_The_Proxy_Depending_On_Name(string name, Type type)
         {
-            var item = new Item { Name = name};
+            var item = new Item { Name = name };
             var proxy = ItemProxyFactory.Create(item);
             Assert.NotNull(proxy);
-            Assert.IsType(type,proxy);
+            Assert.IsType(type, proxy);
         }
     }
 }
